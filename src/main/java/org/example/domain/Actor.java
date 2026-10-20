@@ -1,4 +1,4 @@
-package org.example;
+package org.example.domain;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.UpdateTimestamp;
