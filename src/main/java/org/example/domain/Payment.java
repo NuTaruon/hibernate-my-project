@@ -12,7 +12,8 @@ import java.time.LocalDateTime;
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "payment_id")
+    private Short id;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
@@ -40,7 +41,7 @@ public class Payment {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Short id) {
         this.id = id;
     }
 

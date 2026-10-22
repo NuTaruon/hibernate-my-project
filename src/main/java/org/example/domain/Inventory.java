@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "inventory_id")
+    private Short id;
 
     @ManyToOne
     @JoinColumn(name = "film_id")
@@ -28,7 +29,7 @@ public class Inventory {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Short id) {
         this.id = id;
     }
 

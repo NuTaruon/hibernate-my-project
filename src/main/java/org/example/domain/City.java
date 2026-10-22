@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "city_id")
+    private Short id;
 
     private String city;
 
@@ -26,7 +27,7 @@ public class City {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Short id) {
         this.id = id;
     }
 

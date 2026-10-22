@@ -13,7 +13,7 @@ public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "actor_id")
-    private int id;
+    private Short id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -34,7 +34,7 @@ public class Actor {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Short id) {
         this.id = id;
     }
 

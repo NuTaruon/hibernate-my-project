@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 public class Rental {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name ="rental_id")
+    private Short id;
 
     @Column(name = "rental_date")
     private LocalDateTime creationDate;
@@ -38,7 +39,7 @@ public class Rental {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Short id) {
         this.id = id;
     }
 

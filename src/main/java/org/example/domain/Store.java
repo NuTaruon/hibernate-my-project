@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "store_id")
+    private Short id;
 
     @OneToOne
     @JoinColumn(name = "manager_staff_id")
@@ -28,7 +29,7 @@ public class Store {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Short id) {
         this.id = id;
     }
 

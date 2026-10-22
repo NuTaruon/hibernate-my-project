@@ -14,13 +14,14 @@ public class MySessionFactory {
     private MySessionFactory() {
         Properties properties = new Properties();
         properties.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
-        properties.put(Environment.URL, "jdbc:mysql://localhost:3306/test");
+        properties.put(Environment.URL, "jdbc:mysql://localhost:3306/new_schema");
         properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
         properties.put("hibernate.connection.useUnicode", true);
         properties.put("hibernate.connection.characterEncoding", "UTF-8");
         properties.put("hibernate.connection.charSet", "UTF-8");
         properties.put(Environment.USER, "root");
-        properties.put(Environment.PASS, "root");
+        properties.put(Environment.PASS, "Evoruf27");
+        properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
         sessionFactory = new Configuration()
                 .setProperties(properties)

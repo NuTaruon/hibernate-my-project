@@ -11,7 +11,8 @@ import java.util.Set;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "category_id")
+    private Short id;
 
     private String name;
 
@@ -29,7 +30,7 @@ public class Category {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Short id) {
         this.id = id;
     }
 

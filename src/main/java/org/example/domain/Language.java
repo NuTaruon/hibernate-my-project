@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 public class Language {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "language_id")
+    private Short id;
 
     private String name;
 
@@ -22,7 +23,7 @@ public class Language {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Short id) {
         this.id = id;
     }
 

@@ -11,7 +11,8 @@ import java.time.LocalDateTime;
 public class Staff {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "staff_id")
+    private Short id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -47,7 +48,7 @@ public class Staff {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Short id) {
         this.id = id;
     }
 

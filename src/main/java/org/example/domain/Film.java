@@ -15,7 +15,7 @@ public class Film {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "film_id")
-    private int id;
+    private Short id;
 
     @Column(name ="title")
     private String title;
@@ -65,7 +65,7 @@ public class Film {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Short id) {
         this.id = id;
     }
 
