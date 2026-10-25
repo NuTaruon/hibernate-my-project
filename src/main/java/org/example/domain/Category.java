@@ -21,7 +21,7 @@ public class Category {
     private LocalDateTime lastUpdate;
 
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "film_category", joinColumns = @JoinColumn(name = "category_id", columnDefinition = "category_id"),
             inverseJoinColumns = @JoinColumn(name = "film_id", columnDefinition = "film_id"))
     private Set<Film> films;

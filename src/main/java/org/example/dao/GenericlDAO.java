@@ -1,6 +1,7 @@
 package org.example.dao;
 
 import jakarta.persistence.Query;
+import org.example.MySessionFactory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -9,7 +10,7 @@ import java.util.List;
 public abstract class GenericlDAO<T> {
     private  Class<T> clazz;
 
-    private SessionFactory sessionFactory;
+    private SessionFactory sessionFactory = MySessionFactory.getSessionFactory();
 
     public GenericlDAO(Class<T> clazzToSet, SessionFactory sessionFactory) {
         clazz = clazzToSet;
@@ -17,7 +18,11 @@ public abstract class GenericlDAO<T> {
     }
 
     public T getById(Short id) {
-        return (T) sessionFactory.getCurrentSession().get(clazz, id);
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        T entitt = sessionFactory.getCurrentSession().get(clazz, id);
+        session.getTransaction().commit();
+        return entitt;
     }
 
     public List<T> getItem(int offset, int limit) {
@@ -38,6 +43,7 @@ public abstract class GenericlDAO<T> {
 
     public void update(T entity) {
         sessionFactory.getCurrentSession().merge(entity);
+
     }
 
     public void delete(T entity) {

@@ -23,8 +23,8 @@ public class Film {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "release_year", columnDefinition = "year")
-    private Year  year;
+    @Column(name = "release_year")
+    private Integer  year;
 
     @ManyToOne
     @JoinColumn(name = "language_id")
@@ -41,8 +41,8 @@ public class Film {
     @Column(name = "replacement_cost")
     private BigDecimal replacementCost;
 
-    @Column(columnDefinition = "enum('G', 'PG', 'PG-13', 'R', 'NC-17')")
-    private Rating rating;
+    @Column(name = "rating", columnDefinition = "enum('G','PG','PG-13','R','NC-17')")
+    private String rating;
 
     @Column(name = "special_features", columnDefinition = "set('Trailers', 'Commentaries', 'Deleted Scenes', 'Behind the Scenes')")
     private String specialFeatures;
@@ -51,15 +51,16 @@ public class Film {
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "film_actor", joinColumns = @JoinColumn(name = "film_id", columnDefinition = "film_id"),
     inverseJoinColumns = @JoinColumn(name = "actor_id", columnDefinition = "actor_id"))
     private Set<Actor> actors;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "film_category", joinColumns = @JoinColumn(name = "film_id", columnDefinition = "film_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id", columnDefinition = "category_id"))
     private Set<Category> category;
+
 
     public int getId() {
         return id;
@@ -85,11 +86,11 @@ public class Film {
         this.description = description;
     }
 
-    public Year getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(Year year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
@@ -133,11 +134,11 @@ public class Film {
         this.replacementCost = replacementCost;
     }
 
-    public Rating getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(Rating rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 

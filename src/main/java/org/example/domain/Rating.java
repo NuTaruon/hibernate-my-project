@@ -8,8 +8,23 @@ public enum Rating {
     NC17("NC-17");
 
     private String value;
+
+
     Rating(String value) {
         this.value = value;
     }
 
+    public String getValue() {
+        return value;
+    }
+
+    public static Rating getRatingByValue(String value) {
+        if (value == null) return null;
+        for (Rating r : Rating.values()) {
+            if (r.value.equals(value)) {
+                return r;
+            }
+        }
+        throw new IllegalArgumentException("Unknown rating value: " + value);
+    }
 }

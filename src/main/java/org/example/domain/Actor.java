@@ -25,7 +25,7 @@ public class Actor {
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "film_actor", joinColumns = @JoinColumn(name = "actor_id", columnDefinition = "actor_id"),
             inverseJoinColumns = @JoinColumn(name = "film_id", columnDefinition = "film_id"))
     private Set<Film> films;
