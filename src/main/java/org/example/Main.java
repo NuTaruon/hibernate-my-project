@@ -26,8 +26,7 @@ private static InventoryDAO inventoryDAO = new InventoryDAO(MySessionFactory.get
     static void main() {
 
          Customer customer = customerDAO.getById((short)1);
-         Inventory inventory = inventoryDAO.getById((short)4020);
-         rentalDAO.returnRental(customer, inventory);
+         customerDAO.customerRentFilm(customer);
 
     }
 }

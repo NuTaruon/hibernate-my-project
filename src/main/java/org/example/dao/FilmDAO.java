@@ -105,4 +105,11 @@ public class FilmDAO extends GenericlDAO<Film> {
         update(film);
     }
 
+    public Film getFirstAvaliableFilmRent(){
+        Query<Film> filmQuery = getCurrentSession().createQuery("select f from Film f " +
+                "where f.id not in (select distinct film.id from Inventory)", Film.class);
+        filmQuery.setMaxResults(1);
+        return filmQuery.getSingleResult();
+    }
+
 }
