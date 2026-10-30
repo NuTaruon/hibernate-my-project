@@ -20,7 +20,7 @@ public class MySessionFactory {
         properties.put("hibernate.connection.characterEncoding", "UTF-8");
         properties.put("hibernate.connection.charSet", "UTF-8");
         properties.put(Environment.USER, "root");
-        properties.put(Environment.PASS, "Evoruf27");
+        properties.put(Environment.PASS, "root");
         properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
         sessionFactory = new Configuration()
